@@ -6,6 +6,10 @@ app = Flask(__name__, template_folder='templates')
 def index():
     return render_template('index.html')
 
+@app.route('/ex1')
+def ex1():
+    return render_template('ex1.html')
+
 @app.route('/generate_sentence', methods=['POST'])
 def generate_sentence():
     # Retrieve the selected checkboxes from the request
@@ -24,6 +28,10 @@ def generate_sentence():
     
     # Return the sentence as a JSON response
     return jsonify({'sentence': sentence})
+    # response = jsonify({'sentence': sentence})
+    # response = jsonify(sentence=sentence)
+    # print(response.get_data().decode('utf-8'))
+    # return response
 
 if __name__ == '__main__':
     app.run()

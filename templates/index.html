@@ -1,49 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Checkbox Example</title>
+    <title>Home - Examples</title>
 </head>
 <body>
-    <h1>Checkbox Example</h1>
-    
-    <input type="checkbox" id="checkbox1">
-    <label for="checkbox1">Checkbox 1</label><br>
-    
-    <input type="checkbox" id="checkbox2">
-    <label for="checkbox2">Checkbox 2</label><br>
-    
-    <input type="checkbox" id="checkbox3">
-    <label for="checkbox3">Checkbox 3</label><br>
-    
-    <button onclick="generateSentence()">Generate Sentence</button>
-    
-    <p id="result"></p>
-    
-    <script>
-        function generateSentence() {
-            // Retrieve the checkbox values
-            var checkbox1 = document.getElementById('checkbox1').checked;
-            var checkbox2 = document.getElementById('checkbox2').checked;
-            var checkbox3 = document.getElementById('checkbox3').checked;
-            
-            // Create a FormData object and add the checkbox values
-            var formData = new FormData();
-            formData.append('checkbox1', checkbox1);
-            formData.append('checkbox2', checkbox2);
-            formData.append('checkbox3', checkbox3);
-            
-            // Send a POST request to the Flask backend
-            fetch('/generate_sentence', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Display the generated sentence
-                document.getElementById('result').innerHTML = data.sentence;
-            })
-            .catch(error => console.log(error));
-        }
-    </script>
+    <h1>Home - Examples</h1>
+    <a href="{{ url_for('ex1') }}">Example 1 - Checkbox Example</a><br>
+
 </body>
 </html>
